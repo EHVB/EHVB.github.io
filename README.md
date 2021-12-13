@@ -131,3 +131,56 @@ int main()
 
 ## & uasge
 1. to get the address of a variable
+
+```
+{
+    int x = 1;
+    int* y = &x;
+}
+```
+
+2. to declare a reference to a type
+
+```
+{
+    int e = 5;
+    int & eRef = e;     //both eRef and e point to the same location and have the same value
+}
+```
+
+references can be used to modify the values of the referenced variables <br/>
+it can also be used to avoid copying of large structures to save time and memory, this is illustrated as follows:
+
+```
+// this code is from a geeksforgeeks
+struct Student {
+   string name;
+   string address;
+   int rollNo;
+}
+  
+// If we remove & in below function, a new
+// copy of the student object is created. 
+// We use const to avoid accidental updates 
+// in the function as the purpose of the function
+// is to print s only.
+void print(const Student &s)
+{
+    cout << s.name << "  " << s.address << "  " << s.rollNo;
+} 
+```
+
+3. we can use **&&** in logical expressions as it acts as logical AND(returns true when all conditions are true)
+this is seen in the following example:
+
+```
+{
+    int v = 7;
+    if (v != 6 && v < 10){
+        cout << "true";
+    }
+    // prints true
+}
+```
+
+other usages of **&&** include declaring rValue ref, universal ref, or in the end of a function signature as a way of function overloading.
